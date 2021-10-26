@@ -1,2 +1,2 @@
 # Android-CoinList
-Coin list Android application
+Crypto coin list - Android application
