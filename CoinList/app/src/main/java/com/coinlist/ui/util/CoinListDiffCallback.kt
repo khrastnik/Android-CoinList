@@ -1,8 +1,7 @@
-package com.coinlist.ui
+package com.coinlist.ui.util
 
 import androidx.recyclerview.widget.DiffUtil
 import com.coinlist.domain.model.CoinModel
-
 
 class CoinListDiffCallback(
     private val newItems: List<CoinModel>,

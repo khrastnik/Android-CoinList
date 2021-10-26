@@ -1,6 +1,6 @@
 package com.coinlist.domain.di
 
-import com.coinlist.CoinListActivity
+import com.coinlist.ui.CoinListActivity
 import com.coinlist.domain.di.viewmodel.ViewModelFactoryModule
 import com.coinlist.domain.di.viewmodel.ViewModelModule
 import dagger.Module

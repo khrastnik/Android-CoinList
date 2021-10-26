@@ -19,15 +19,14 @@ class GetPairWithPriceUseCase @Inject constructor(private val repository: ICoinR
 
     override operator fun invoke(): Flow<Resource<List<CoinModel>>> = flow {
         try {
-            val tradingPairs = repository.getTradingPairList().data.map { it.mapToCoinModel() }
+            val tradingPairList = repository.getTradingPairList().data.map { it.mapToCoinModel() }
 
-            emit(Resource.Success(tradingPairs))
+            emit(Resource.Success(tradingPairList))
 
             while (true) {
                 val pairPriceList =
                     repository.getPairPriceList().data.map { it.mapToCoinPriceModel() }
-
-                val resultWithPrices = tradingPairs.mapNotNull { coinPairItem ->
+                val resultWithPrices = tradingPairList.mapNotNull { coinPairItem ->
                     val coinPriceItem = pairPriceList.find { it.pair == coinPairItem.pair }
                     if (coinPriceItem == null) {
                         null
@@ -42,24 +41,11 @@ class GetPairWithPriceUseCase @Inject constructor(private val repository: ICoinR
                 delay(refreshIntervalMs)
             }
         } catch (e: HttpException) {
-            emit(
-                Resource.Error<List<CoinModel>>(
-                    e.localizedMessage ?: "An http error occurred", null
-                )
-            )
+            emit(Resource.Error<List<CoinModel>>(e.localizedMessage ?: "An http error occurred", null))
         } catch (e: IOException) {
-            emit(
-                Resource.NoInternet<List<CoinModel>>(
-                    "Couldn't reach server. Check your internet connection.",
-                    null
-                )
-            )
+            emit(Resource.NoInternet<List<CoinModel>>(e.localizedMessage ?: "Couldn't reach server. Check your internet connection.", null))
         } catch (e: Exception) {
-            emit(
-                Resource.Error<List<CoinModel>>(
-                    e.localizedMessage ?: "An unexpected error occurred", null
-                )
-            )
+            emit(Resource.Error<List<CoinModel>>(e.localizedMessage ?: "An unexpected error occurred", null))
         }
     }
 }

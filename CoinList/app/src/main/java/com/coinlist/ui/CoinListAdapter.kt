@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.coinlist.R
 import com.coinlist.domain.model.CoinModel
+import com.coinlist.ui.util.CoinListDiffCallback
 
 
 class CoinListAdapter(private var data: ArrayList<CoinModel>) :
@@ -24,7 +25,7 @@ class CoinListAdapter(private var data: ArrayList<CoinModel>) :
         val item = data[position]
         holder.name.text = item.name
         holder.minimumOrder.text = item.minimumOrder
-        holder.price.text = String.format("%s %s", item.ask, item.counter)
+        holder.price.text = item.ask
     }
 
     override fun getItemCount(): Int {

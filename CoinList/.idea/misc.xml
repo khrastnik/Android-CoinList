@@ -8,6 +8,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProjects/Android-CoinList/CoinList/app/src/main/res/layout/coin_list_activity.xml" value="0.16145833333333334" />
+        <entry key="..\:/AndroidProjects/Android-CoinList/CoinList/app/src/main/res/layout/coin_list_fragment.xml" value="0.16145833333333334" />
         <entry key="..\:/AndroidProjects/CoinList/app/src/main/res/layout/coin_list_activity.xml" value="0.16770833333333332" />
         <entry key="..\:/AndroidProjects/CoinList/app/src/main/res/layout/coin_list_fragment.xml" value="0.2" />
         <entry key="..\:/AndroidProjects/CoinList/app/src/main/res/layout/coin_list_item.xml" value="0.536" />

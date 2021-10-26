@@ -25,15 +25,6 @@ class CoinListViewModel @Inject constructor(
     private var selectedCounterName: String? = null
     private var tickerJob: Job? = null
 
-    /**
-     * Get pairs counters (EUR, USD, BTC)
-     */
-    private fun setPairCounters() {
-        if (listItems != null && counterItems.isEmpty()) {
-            counterItems = listItems!!.map { it.counter }.distinct().toMutableList()
-        }
-    }
-
     fun getPairWithPrice() {
         if (tickerJob == null || !tickerJob!!.isActive) {
             tickerJob = viewModelScope.launch {
@@ -50,6 +41,12 @@ class CoinListViewModel @Inject constructor(
 
     fun getPairPriceList(): StateFlow<Resource<List<CoinModel>>> {
         return pairPriceList
+    }
+
+    private fun setPairCounters() {
+        if (listItems != null && counterItems.isEmpty()) {
+            counterItems = listItems!!.map { it.counter }.distinct().toMutableList()
+        }
     }
 
     fun setSelectedCounterName(counterName: String?) {
@@ -71,7 +68,6 @@ class CoinListViewModel @Inject constructor(
         var result = emptyList<CoinModel>()
         if (!listItems.isNullOrEmpty() && !selectedCounterName.isNullOrEmpty()) {
             result = listItems!!.filter { it.counter == selectedCounterName }
-
         } else if (!listItems.isNullOrEmpty()) {
             result = listItems!!
         }

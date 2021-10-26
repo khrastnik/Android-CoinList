@@ -1,6 +1,5 @@
 package com.coinlist.domain.model
 
-
 data class CoinModel(
     var base: String,
     var minimumOrder: String,

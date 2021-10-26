@@ -44,7 +44,7 @@ class NetworkModule {
     @Provides
     fun provideApiService(okHttpClient: OkHttpClient, gson: Gson): IApiService {
         return Retrofit.Builder()
-            .baseUrl("https://www.bitstamp.net/api/mobile/")
+            .baseUrl(BuildConfig.API_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()

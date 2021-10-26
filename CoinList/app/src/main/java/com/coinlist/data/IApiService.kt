@@ -4,7 +4,6 @@ import com.coinlist.data.remote.dto.CoinPriceListDto
 import com.coinlist.data.remote.dto.TradingPairListDto
 import retrofit2.http.GET
 
-
 interface IApiService {
 
     @GET("v1/pairs")

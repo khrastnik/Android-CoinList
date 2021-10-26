@@ -1,8 +1,7 @@
-package com.coinlist
+package com.coinlist.ui
 
 import android.os.Bundle
 import com.coinlist.databinding.CoinListActivityBinding
-import com.coinlist.ui.CoinListFragment
 import com.coinlist.ui.base.BaseActivity
 
 class CoinListActivity : BaseActivity() {

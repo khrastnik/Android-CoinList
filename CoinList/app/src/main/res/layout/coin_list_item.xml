@@ -20,7 +20,7 @@
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="@dimen/font_size_medium"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/coin_list_min_order"
-            android:textSize="16sp"
+            android:textSize="@dimen/font_size_small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
@@ -40,18 +40,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:textSize="16sp"
+            android:textSize="@dimen/font_size_small"
             app:layout_constraintBaseline_toBaselineOf="@+id/tvMinimumOrderText"
             app:layout_constraintStart_toEndOf="@id/tvMinimumOrderText"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="10.0" />
+            tools:text="10.0"
+            android:layout_marginStart="5dp" />
 
         <TextView
             android:id="@+id/tvPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:textSize="18sp"
+            android:textSize="@dimen/font_size_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="52500.22 EUR" />

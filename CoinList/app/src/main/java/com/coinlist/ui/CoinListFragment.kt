@@ -67,7 +67,6 @@ class CoinListFragment : BaseFragment() {
             )
         )
         binding.rvCoinList.adapter = adapter
-
         binding.swipeRefreshLayout.setOnRefreshListener {
             binding.swipeRefreshLayout.isRefreshing = false
             getPairsWithPrices()

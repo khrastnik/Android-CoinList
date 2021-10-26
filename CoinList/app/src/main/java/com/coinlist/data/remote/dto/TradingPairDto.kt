@@ -3,7 +3,6 @@ package com.coinlist.data.remote.dto
 import com.coinlist.domain.model.CoinModel
 import com.google.gson.annotations.SerializedName
 
-
 data class TradingPairDto(
 
     @SerializedName("base_decimals")
