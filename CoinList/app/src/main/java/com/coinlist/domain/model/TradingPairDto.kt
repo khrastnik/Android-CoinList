@@ -1,6 +1,5 @@
-package com.coinlist.data.remote.dto
+package com.coinlist.domain.model
 
-import com.coinlist.domain.model.CoinModel
 import com.google.gson.annotations.SerializedName
 
 data class TradingPairDto(
@@ -15,7 +14,7 @@ data class TradingPairDto(
     var name: String,
     var pair: String,
     var counter: String,
-    var description: String,
+    var description: String
 )
 
 fun TradingPairDto.mapToCoinModel(): CoinModel {

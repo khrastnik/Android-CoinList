@@ -1,6 +1,5 @@
 package com.coinlist.ui
 
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.coinlist.R
 import com.coinlist.domain.model.CoinModel
 import com.coinlist.ui.util.CoinListDiffCallback
-
 
 class CoinListAdapter(private var data: ArrayList<CoinModel>) :
     RecyclerView.Adapter<CoinListAdapter.ViewHolder>() {

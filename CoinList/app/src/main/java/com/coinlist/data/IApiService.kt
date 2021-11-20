@@ -1,7 +1,7 @@
 package com.coinlist.data
 
-import com.coinlist.data.remote.dto.CoinPriceListDto
-import com.coinlist.data.remote.dto.TradingPairListDto
+import com.coinlist.domain.model.CoinPriceListDto
+import com.coinlist.domain.model.TradingPairListDto
 import retrofit2.http.GET
 
 interface IApiService {

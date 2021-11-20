@@ -1,16 +1,16 @@
 package com.coinlist.domain.usecase
 
 import com.coinlist.common.Resource
-import com.coinlist.data.remote.dto.mapToCoinModel
-import com.coinlist.data.remote.dto.mapToCoinPriceModel
+import com.coinlist.domain.model.mapToCoinModel
+import com.coinlist.domain.model.mapToCoinPriceModel
 import com.coinlist.domain.model.CoinModel
 import com.coinlist.domain.repository.ICoinRepository
+import java.io.IOException
+import javax.inject.Inject
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
-import java.io.IOException
-import javax.inject.Inject
 
 class GetPairWithPriceUseCase @Inject constructor(private val repository: ICoinRepository) :
     BaseUseCase() {

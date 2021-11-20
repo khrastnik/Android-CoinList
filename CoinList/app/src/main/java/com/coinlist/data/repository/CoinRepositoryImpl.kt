@@ -1,8 +1,8 @@
 package com.coinlist.data.repository
 
 import com.coinlist.data.IApiService
-import com.coinlist.data.remote.dto.CoinPriceListDto
-import com.coinlist.data.remote.dto.TradingPairListDto
+import com.coinlist.domain.model.CoinPriceListDto
+import com.coinlist.domain.model.TradingPairListDto
 import com.coinlist.domain.repository.ICoinRepository
 import javax.inject.Inject
 

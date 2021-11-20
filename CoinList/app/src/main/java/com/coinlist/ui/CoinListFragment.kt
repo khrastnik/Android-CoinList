@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.coinlist.R
@@ -18,12 +20,12 @@ import com.coinlist.databinding.CoinListFragmentBinding
 import com.coinlist.ui.base.BaseFragment
 import kotlinx.coroutines.Dispatchers.Default
 import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
-
 
 class CoinListFragment : BaseFragment() {
 
@@ -93,7 +95,6 @@ class CoinListFragment : BaseFragment() {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>) {
-
                 }
             }
         } else {
@@ -116,7 +117,7 @@ class CoinListFragment : BaseFragment() {
     }
 
     private fun setupPairPriceObserver() {
-        viewModel.getPairPriceList().onEach {
+        viewModel._pairPriceList.onEach {
             when (it) {
                 is Resource.Loading -> {
                     setRecyclerViewVisible(false)

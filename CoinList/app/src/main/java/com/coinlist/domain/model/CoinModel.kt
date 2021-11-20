@@ -6,7 +6,5 @@ data class CoinModel(
     var name: String,
     var pair: String,
     var counter: String,
-    var ask: String,
+    var ask: String
 )
-
-

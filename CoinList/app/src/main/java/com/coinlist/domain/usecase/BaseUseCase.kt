@@ -4,6 +4,3 @@ abstract class BaseUseCase {
 
     abstract operator fun invoke(): Any
 }
-
-
-

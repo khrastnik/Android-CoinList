@@ -5,13 +5,13 @@ import com.coinlist.common.Resource
 import com.coinlist.domain.model.CoinModel
 import com.coinlist.domain.usecase.GetPairWithPriceUseCase
 import com.coinlist.ui.base.BaseViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 class CoinListViewModel @Inject constructor(
     private val getPairWithPriceUseCase: GetPairWithPriceUseCase
@@ -19,6 +19,7 @@ class CoinListViewModel @Inject constructor(
 
     private val pairPriceList =
         MutableStateFlow<Resource<List<CoinModel>>>(Resource.Loading())
+    val _pairPriceList :StateFlow<Resource<List<CoinModel>>> = pairPriceList
 
     private var listItems: List<CoinModel>? = emptyList()
     private var counterItems: MutableList<String> = mutableListOf()
@@ -37,10 +38,6 @@ class CoinListViewModel @Inject constructor(
                 }
             }
         }
-    }
-
-    fun getPairPriceList(): StateFlow<Resource<List<CoinModel>>> {
-        return pairPriceList
     }
 
     private fun setPairCounters() {

@@ -1,6 +1,4 @@
-package com.coinlist.data.remote.dto
-
-import com.coinlist.domain.model.CoinPriceModel
+package com.coinlist.domain.model
 
 data class CoinPriceDto(
     var last24: String,
@@ -13,7 +11,7 @@ data class CoinPriceDto(
     var volume: String,
     var last: String,
     var vwap: String,
-    var low: String,
+    var low: String
 )
 
 fun CoinPriceDto.mapToCoinPriceModel(): CoinPriceModel {
