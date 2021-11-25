@@ -1,4 +1,4 @@
-package com.coinlist.domain.di
+package com.coinlist.di
 
 import com.coinlist.ui.CoinListFragment
 import dagger.Module

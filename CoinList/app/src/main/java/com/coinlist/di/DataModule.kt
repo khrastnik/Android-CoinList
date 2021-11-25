@@ -1,4 +1,4 @@
-package com.coinlist.domain.di
+package com.coinlist.di
 
 import com.coinlist.data.repository.CoinRepositoryImpl
 import com.coinlist.domain.repository.ICoinRepository

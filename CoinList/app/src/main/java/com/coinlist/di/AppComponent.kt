@@ -1,7 +1,7 @@
-package com.coinlist.domain.di
+package com.coinlist.di
 
 import com.coinlist.CoinApplication
-import com.coinlist.domain.di.viewmodel.ViewModelFactoryModule
+import com.coinlist.di.viewmodel.ViewModelFactoryModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
