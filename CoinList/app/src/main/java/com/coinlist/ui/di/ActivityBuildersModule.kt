@@ -1,7 +1,7 @@
-package com.coinlist.di
+package com.coinlist.ui.di
 
-import com.coinlist.di.viewmodel.ViewModelFactoryModule
-import com.coinlist.di.viewmodel.ViewModelModule
+import com.coinlist.ui.di.viewmodel.ViewModelFactoryModule
+import com.coinlist.ui.di.viewmodel.ViewModelModule
 import com.coinlist.ui.CoinListActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

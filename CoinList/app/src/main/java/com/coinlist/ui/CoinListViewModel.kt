@@ -17,9 +17,9 @@ class CoinListViewModel @Inject constructor(
     private val getPairWithPriceUseCase: GetPairWithPriceUseCase
 ) : BaseViewModel(getPairWithPriceUseCase) {
 
-    private val pairPriceList =
+    private val _pairPriceList =
         MutableStateFlow<Resource<List<CoinModel>>>(Resource.Loading())
-    val _pairPriceList :StateFlow<Resource<List<CoinModel>>> = pairPriceList
+    val pairPriceList :StateFlow<Resource<List<CoinModel>>> = _pairPriceList
 
     private var listItems: List<CoinModel>? = emptyList()
     private var counterItems: MutableList<String> = mutableListOf()
@@ -34,7 +34,7 @@ class CoinListViewModel @Inject constructor(
                         listItems = it.data
                         setPairCounters()
                     }
-                    pairPriceList.emit(it)
+                    _pairPriceList.emit(it)
                 }
             }
         }

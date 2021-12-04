@@ -1,4 +1,4 @@
-package com.coinlist.di.viewmodel
+package com.coinlist.ui.di.viewmodel
 
 import androidx.lifecycle.ViewModelProvider
 import dagger.Binds

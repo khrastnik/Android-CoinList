@@ -117,7 +117,7 @@ class CoinListFragment : BaseFragment() {
     }
 
     private fun setupPairPriceObserver() {
-        viewModel._pairPriceList.onEach {
+        viewModel.pairPriceList.onEach {
             when (it) {
                 is Resource.Loading -> {
                     setRecyclerViewVisible(false)

@@ -1,4 +1,4 @@
-package com.coinlist.di
+package com.coinlist.ui.di
 
 import com.coinlist.BuildConfig
 import com.coinlist.data.IApiService

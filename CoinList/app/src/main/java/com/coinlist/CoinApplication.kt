@@ -1,6 +1,6 @@
 package com.coinlist
 
-import com.coinlist.di.DaggerAppComponent
+import com.coinlist.ui.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 
