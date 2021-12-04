@@ -6,21 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.coinlist.R
-import com.coinlist.common.Resource
 import com.coinlist.common.gone
 import com.coinlist.common.visible
 import com.coinlist.databinding.CoinListFragmentBinding
+import com.coinlist.ui.CoinListViewModel.CoinListUiState
 import com.coinlist.ui.base.BaseFragment
 import kotlinx.coroutines.Dispatchers.Default
 import kotlinx.coroutines.Dispatchers.Main
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -38,8 +34,7 @@ class CoinListFragment : BaseFragment() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private val viewModel by lazy {
-        ViewModelProvider(this, viewModelFactory)
-            .get(CoinListViewModel::class.java)
+        ViewModelProvider(this, viewModelFactory)[CoinListViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -119,21 +114,19 @@ class CoinListFragment : BaseFragment() {
     private fun setupPairPriceObserver() {
         viewModel.pairPriceList.onEach {
             when (it) {
-                is Resource.Loading -> {
+                is CoinListUiState.Loading -> {
                     setRecyclerViewVisible(false)
                     setProgressBarVisible(true)
                 }
-                is Resource.Success -> {
+                is CoinListUiState.Success -> {
                     setProgressBarVisible(false)
                     renderCounterSpinner()
                     renderCoinList()
                     setRecyclerViewVisible(true)
                 }
-                is Resource.Error -> {
-                    showErrorMessage(getString(R.string.api_error_message))
-                }
-                is Resource.NoInternet -> {
-                    showErrorMessage(getString(R.string.no_internet_error_message))
+                is CoinListUiState.Error -> {
+                    setProgressBarVisible(false)
+                    handleException(it.exception)
                 }
             }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
@@ -162,11 +155,6 @@ class CoinListFragment : BaseFragment() {
             }
             adapter.setItems(listItems)
         }
-    }
-
-    private fun showErrorMessage(message: String) {
-        setProgressBarVisible(false)
-        showSnackBar(message)
     }
 
     override fun onDestroyView() {
